@@ -8,7 +8,7 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Create reports directory
-      run: mkdir reports
+      run: mkdir ./reports
       
     - name: Run JMeter Tests
       uses: ./
@@ -20,12 +20,12 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: jmeter-results
-        path: result.jtl
+        path: ./reports/result.jtl
         if-no-files-found: error
 
     - name: Upload HTML Reports
       uses: actions/upload-artifact@v3
       with:
         name: jmeter-reports
-        path: reports
+        path: ./reports
         if-no-files-found: error
